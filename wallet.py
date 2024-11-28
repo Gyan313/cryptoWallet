@@ -1,8 +1,15 @@
+import os
 from web3 import Web3
+from dotenv import load_dotenv
+
+# fetch the environment variables.
+load_dotenv()
+
+REMOTE_NODE_PROVIDER_API_KEY = os.getenv("INFURA_API_KEY")
 
 # connected to the ethereum network.
 w3 = Web3(
-    Web3.HTTPProvider("https://sepolia.infura.io/v3/3a5c6baecddd4f00a9687aa44669b163")
+    Web3.HTTPProvider(f"https://sepolia.infura.io/v3/{REMOTE_NODE_PROVIDER_API_KEY}")
 )
 
 # creating a new eth-account.
