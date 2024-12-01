@@ -29,4 +29,4 @@ value_to_store = Web3().to_hex(_account.key)
 set_key(dotenv_path=".env", key_to_set=key_env_name, value_to_set=value_to_store)
 
 
-# generate all the keys with a mneumonic phrase, we are creating a HD_wallet.
+# generate all the private keys with a mneumonic phrase, we are creating a HD_wallet.

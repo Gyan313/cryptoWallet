@@ -1,11 +1,5 @@
 # Crypto Wallet
 
-## What are different types of crypto wallet ?
-1. [creating a very basic crypto-wallet from scratch](<https://www.askpython.com/resources/build-crypto-wallet-python#:~:text=Once%20you've%20generated%20the,Signature%20Algorithm)%20library%20in%20Python.>)
-    - Mainly 2 types of crypto wallet: 
-        - Hot wallet --- connected to internet (vulnerable)
-        - cold wallet ---- not connected to internet, like a piece of paper (QR) or hardware device.
-
 ## what do you mean by crypto wallet ?
 * at the most basic level :
     - stores --->  digital assets ( Wallets don't "store" cryptocurrency; they store the keys that allow access to funds recorded on the blockchain )
@@ -16,9 +10,20 @@
     - address ( generated usign public key )
 * "Creating a new Ethereum account" means generating a unique, new wallet address on the Ethereum blockchain, which is essentially a string of characters that acts like your "digital mailbox" where you can receive and send Ether (ETH) cryptocurrency; this address is automatically generated when you set up a new Ethereum wallet on a platform like MetaMask, and is used to identify your account on the network.
 
+## What are different types of crypto wallet ?
+1. Mainly 2 types of crypto wallet: 
+    - Hot wallet --- connected to internet (vulnerable)
+    - cold wallet ---- not connected to internet, like a piece of paper (QR) or hardware device.
+2. Hot wallet ----> focus here, as we are trying to create a software product connected to internet like metamask wallet. There are workaround for hardware wallets but rn just focus on hot wallet. 
+    - There can be 3 different types of hot wallet: 
+        - Sequential deterministic wallet ---> every key-pair has different incremental seed.
+        - Hierarchical deterministic wallet ( **HD_Wallets** ) -----> every key-pair originate from the single master root seed.
+        - Non-deterministic wallet ----> each key is randomly generated on its own accord, and they are not seeded from a common key.
+    - *We are going to focus on HD_Wallets as they are convenient and secure.*
 
-## how can i create a crypto cli wallet ?
-### Create cli wallet for ethereum first
+
+## how can i create a crypto cli hdwallet ?
+### Create cli hdwallet for ethereum only ( started with ethereum blockchain network ).
 ---
 
 1. need the python library web3.py to interact with ethereum blockchain network.
@@ -35,15 +40,15 @@
 
 ----------
 
-3. Create wallet using python.
+3. Create hdwallet using python.
     * What are the basic function of a crypto-wallet ?
 
-        - Private Key Generation 
+        - Account Generation 
             - private_key ----> from a cryptographic algorithm.
             - public_key -----> one-way cryptographic function ----> func(private_key)
             - wallet_address ----> public_key hashed to get the produce a wallet address. Short, human-readable.
 
-            - You must always use local_private_keys ( saved locally on my machine ) when working with nodes hosted by someone else, as i am using infura node.
+            - You must always use local_private_keys ( saved locally on my browser, not on localStorage ) when working with nodes hosted by someone else, as i am using infura node.
 
             - Why we only need private key? 
                 - cause, with private_key we can generate a public_key
